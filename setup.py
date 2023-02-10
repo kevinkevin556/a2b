@@ -4,21 +4,21 @@ with open("README.md", "r", encoding = "utf-8") as f:
     long_description = f.read()
 
 setup(
-    name='arxiv2bib',
+    name='a2b',
     version='1.0.0',
-    description='Replace arxiv links by their corresponding bibliography.',
+    description='Replace arxiv links in markdowns by their corresponding bibliography.',
     long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/kevinkevin556/arxiv2bib',
     author='Zhen-Lun Hong',
     author_email='kevink556@gmail.com',
     license='MIT',
-    packages=["arxiv2bib"],
+    packages=["a2b"],
     entry_points={"console_scripts":[
-        "a2b=arxiv2bib.arxiv2bib:main",
-        "arxiv2bib=arxiv2bib.arxiv2bib:main"
+        "a2b=a2b.arxiv2bib:main",
     ]},
     zip_safe=False,
-    keywords=['arxiv', "biblography"],
+    keywords=['arxiv', "biblography", "markdown"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Topic :: Education",

@@ -1,6 +1,6 @@
-# Arxiv2Bib
+# A2B (Arxiv to Biblography)
 
-#### Replace arxiv links by their corresponding bibliography. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
+#### Replace arxiv links by their corresponding bibliography in markdowns. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
 
 
 ![demo](https://github.com/kevinkevin556/arxiv2bib/raw/main/demo.gif)
@@ -10,15 +10,15 @@ This repo provides a tool to replace arXiv links in markdown files with their co
 
 ## Installation
 
-To install `arxiv2bib`, make sure you have [pip installed](https://pip.pypa.io/en/stable/installation/) and run:
+To install `a2b`, make sure you have [pip installed](https://pip.pypa.io/en/stable/installation/) and run:
 
 ```Bash
-pip install arxiv2bib
+pip install a2b
 ```
 
 ## Usage
 
-The tool can be run from the command line by passing the file path or directory path as an argument. Both commands **`arxiv2bib`** or **`a2b`** are available.
+The tool can be run from the command line by passing the file path or directory path as an argument.
 
 ### Replace arxiv links in a single markdown file
 
