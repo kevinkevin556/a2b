@@ -34,7 +34,7 @@ Run the following command to replace all arxiv links found in the given director
 a2b path/to/directory
 ```
 
-To replace arxiv links in the markdown files **ONLY** within the directory (not recursivley), use arguments `--no-recursive` or `-nr`:
+To replace arxiv links in the markdown files **ONLY** within the directory (not recursively), use arguments `--no-recursive` or `-nr`:
 
 ```Bash
 a2b -nr path/to/directory
