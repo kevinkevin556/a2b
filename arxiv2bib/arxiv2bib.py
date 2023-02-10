@@ -67,14 +67,18 @@ def get_update_message(arxiv_id, title, journal, year):
 
 def main():
     parser = argparse.ArgumentParser(description="Replace arxiv links in the markdown files by their corresponding bibliography.")
-    parser.add_argument("directory", help="Directory containing the markdown files.")
+    parser.add_argument("path", help="Path of a markdown or a directory containing markdowns.")
     args = parser.parse_args()
 
-    for dir, _, _ in os.walk(args.directory):
-        for filename in os.listdir(dir):
-            file_path = os.path.join(dir, filename)
-            if file_path.endswith(".md"):
-                replace_arxiv_links(file_path)
+    if os.path.isfile(args.path):
+        if args.path.endswith(".md"):
+            replace_arxiv_links(args.path)
+    else:
+        for dir, _, _ in os.walk(args.path):
+            for filename in os.listdir(dir):
+                file_path = os.path.join(dir, filename)
+                if file_path.endswith(".md"):
+                    replace_arxiv_links(file_path)
     print("\033[92m" + "[Done]" + "\033[0m")
 
 
