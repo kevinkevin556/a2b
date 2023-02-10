@@ -1,4 +1,4 @@
-# A2B (Arxiv to Biblography)
+# A2B (Arxiv to Bibliography)
 
 #### Replace arxiv links by their corresponding bibliography in markdowns. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
 
