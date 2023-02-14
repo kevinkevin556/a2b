@@ -47,7 +47,7 @@ def replace_arxiv_links(file_path):
     arxiv_links = find_arxiv_links(file_path)
     if len(arxiv_links) > 0:
         print("\033[92m" + f"[In {file_path}]" + "\033[0m")
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding='UTF-8') as f:
         content = f.read()
     for arxiv_link in arxiv_links:
         arxiv_id = arxiv_link.split("/")[-1].rstrip()
@@ -55,7 +55,7 @@ def replace_arxiv_links(file_path):
         print(get_update_message(arxiv_id, title, journal, year))
         markdown = generate_markdown(title, authors, journal, year, arxiv_link, citations)
         content = content.replace(arxiv_link, markdown)
-    with open(file_path, "w") as f:
+    with open(file_path, "w", encoding='UTF-8') as f:
         f.write(content)
 
 def get_update_message(arxiv_id, title, journal, year):
