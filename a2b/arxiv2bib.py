@@ -4,7 +4,7 @@ import requests
 from requests.exceptions import ConnectionError
 
 def extract_metadata(arxiv_id):
-    fields = ["year", "authors", "title", "journal", "citationCount"]
+    fields = ["year", "authors", "title", "journal", "venue", "citationCount"]
     api_url = f"https://api.semanticscholar.org/graph/v1/paper/ARXIV:{arxiv_id}?fields={','.join(fields)}"
     response = requests.get(api_url)
     if response.status_code != 200:
@@ -17,7 +17,9 @@ def extract_metadata(arxiv_id):
     else:
         authors = paper_data["authors"][0]["name"] + " et al"
     if paper_data.get("journal") is not None:
-        journal = paper_data["journal"]["name"]
+        journal = paper_data["journal"].get("name")
+        if journal is None:
+            journal = paper_data["venue"]
     else:
         journal = "Working Paper"
     year = paper_data.get("year", "UNKNOWN-YEAR")
