@@ -29,7 +29,7 @@ def extract_metadata(arxiv_id):
 
 def find_arxiv_links(file_path):
     arxiv_links = []
-    with open(file_path, "r") as f:
+    with open(file_path, "r", encoding='UTF-8') as f:
         for content in iter(f):
             arxiv_links += [link for link in content.split(" ") if link.startswith("https://arxiv.org/abs/")]
     return arxiv_links
