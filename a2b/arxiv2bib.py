@@ -2,13 +2,14 @@ import os
 import argparse
 import requests
 from requests.exceptions import ConnectionError
+import pkg_resources 
 
 def extract_metadata(arxiv_id):
     fields = ["year", "authors", "title", "journal", "venue", "citationCount"]
     api_url = f"https://api.semanticscholar.org/graph/v1/paper/ARXIV:{arxiv_id}?fields={','.join(fields)}"
     response = requests.get(api_url)
     if response.status_code != 200:
-        raise ConnectionError
+        raise ConnectionError(f"Unable to find arxiv paper with id = {arxiv_id}")
 
     paper_data = response.json()
     title = paper_data["title"]
@@ -31,17 +32,23 @@ def find_arxiv_links(file_path):
     arxiv_links = []
     with open(file_path, "r", encoding='UTF-8') as f:
         for content in iter(f):
-            arxiv_links += [link for link in content.split(" ") if link.startswith("https://arxiv.org/abs/")]
+            arxiv_links += [link for link in content.split(" ") if link.startswith("https://arxiv.org/")]
     return arxiv_links
 
-def generate_markdown(title, authors, journal, year, arxiv_link, citations):
+def generate_markdown(title, authors, journal, year, arxiv_id, citations):
     markdown = f"**{title}.** "
     markdown += f"*{authors}.* "
     markdown += f"**{journal}, {str(year)}** "
-    markdown += f"[(Arxiv)]({arxiv_link}) "
+    markdown += f"[(Arxiv)]({'https://arxiv.org/abs/' + str(arxiv_id)}) "
     markdown += f"(Citations **{str(citations)}**)\n"
     return markdown
 
+def get_arxiv_id(arxiv_link):
+    if arxiv_link.startswith("https://arxiv.org/abs/"):
+        arxiv_id = arxiv_link.rstrip().split("/")[-1]
+    if arxiv_link.startswith("https://arxiv.org/pdf/"):
+        arxiv_id = arxiv_link.rstrip().split("/")[-1].rstrip()[:-4]
+    return arxiv_id
 
 def replace_arxiv_links(file_path):
     arxiv_links = find_arxiv_links(file_path)
@@ -50,10 +57,10 @@ def replace_arxiv_links(file_path):
     with open(file_path, "r", encoding='UTF-8') as f:
         content = f.read()
     for arxiv_link in arxiv_links:
-        arxiv_id = arxiv_link.split("/")[-1].rstrip()
+        arxiv_id = get_arxiv_id(arxiv_link)
         title, authors, journal, year, citations = extract_metadata(arxiv_id)
         print(get_update_message(arxiv_id, title, journal, year))
-        markdown = generate_markdown(title, authors, journal, year, arxiv_link, citations)
+        markdown = generate_markdown(title, authors, journal, year, arxiv_id, citations)
         content = content.replace(arxiv_link, markdown)
     with open(file_path, "w", encoding='UTF-8') as f:
         f.write(content)
@@ -78,22 +85,26 @@ def main():
     description = "Replace arxiv links in the markdown files by their corresponding bibliography."
     help_path = "path of a markdown or a directory containing markdowns."
     help_nr = "replace arxiv links in markdowns only under the given directory"
+    help_version = "retrieve the version of the installed a2b library"
 
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument("path", help=help_path)
     parser.add_argument("-nr", "--no-recursive", dest="recursive", action="store_false", help=help_nr)
+    parser.add_argument("-v", "--version", dest="version", action="store_true", help=help_version)
     args = parser.parse_args()
 
-    if os.path.isfile(args.path):
-        if args.path.endswith(".md"):
-            replace_arxiv_links(args.path)
-    elif args.recursive:
-        for dir, _, _ in os.walk(args.path):
-            replace_links_in_dir(dir)
+    if args.version:
+        print("a2b", pkg_resources.require("a2b")[0].version)
     else:
-        replace_links_in_dir(args.path)
-
-    print("\033[92m" + "[Done]" + "\033[0m")
+        if os.path.isfile(args.path):
+            if args.path.endswith(".md"):
+                replace_arxiv_links(args.path)
+        elif args.recursive:
+            for dir, _, _ in os.walk(args.path):
+                replace_links_in_dir(dir)
+        else:
+            replace_links_in_dir(args.path)
+        print("\033[92m" + "[Done]" + "\033[0m")
 
 
 if __name__ == "__main__":
