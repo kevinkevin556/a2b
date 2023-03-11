@@ -5,11 +5,11 @@ with open("README.md", "r", encoding = "utf-8") as f:
 
 setup(
     name='a2b',
-    version='1.0.3',
+    version='1.0.4',
     description='Replace arxiv links in markdowns by their corresponding bibliography.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url='https://github.com/kevinkevin556/arxiv2bib',
+    url='https://github.com/kevinkevin556/a2b',
     author='Zhen-Lun Hong',
     author_email='kevink556@gmail.com',
     license='MIT',
