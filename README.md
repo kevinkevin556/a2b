@@ -1,14 +1,13 @@
 # A2B (Arxiv to Bibliography)
 
-#### Replace arxiv links by their corresponding bibliography in markdowns. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
+#### Replace arxiv links (or doi links) by their corresponding bibliography in markdowns. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
 
 
 ![demo](https://github.com/kevinkevin556/arxiv2bib/raw/main/demo.gif)
 
 
-This repo provides a tool to replace arXiv links in markdown files with their corresponding bibliographic information. The script uses the Semantic Scholar API to retrieve information such as authors, title, journal, year, and citation count for a given arXiv paper.
+This repo provides a tool to replace arXiv links (or doi links) in markdown files with their corresponding bibliographic information. The script uses the Semantic Scholar API to retrieve information such as authors, title, journal, year, and citation count for a given arXiv paper.
 
-**Start from version 1.0.4 , we support creating bibliography from DOI links.**
 
 ## Installation
 
@@ -65,3 +64,10 @@ To replace arxiv links in the markdown files **ONLY** within the directory (subd
 ```Bash
 >> a2b -nr path/to/directory
 ```
+
+
+## Changelog
+
+* **Version 1.0.4**
+  * Support creating bibliography from DOI links
+  
