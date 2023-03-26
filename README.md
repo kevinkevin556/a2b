@@ -70,4 +70,4 @@ To replace arxiv links in the markdown files **ONLY** within the directory (subd
 
 * **Version 1.0.4**
   * Support creating bibliography from DOI links
-  
+  * Support querying a single arxiv link from terminal
