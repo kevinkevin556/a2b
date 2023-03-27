@@ -1,29 +1,24 @@
-from setuptools import setup
+import toml
+import setuptools
 
-with open("README.md", "r", encoding = "utf-8") as f:
+with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
 
-setup(
-    name='a2b',
-    version='1.0.4',
-    description='Replace arxiv links in markdowns by their corresponding bibliography.',
+metadata = toml.load(open("pyproject.toml"))["tool"]["poetry"]
+
+setuptools.setup(
+    name=metadata["name"],
+    version=metadata["version"],
+    description=metadata["description"],
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    url='https://github.com/kevinkevin556/a2b',
-    author='Zhen-Lun Hong',
-    author_email='kevink556@gmail.com',
-    license='MIT',
-    packages=["a2b"],
-    entry_points={"console_scripts":[
-        "a2b=a2b.arxiv2bib:main",
-    ]},
+    long_description_content_type=metadata["long_description_content_type"],
+    url=metadata["url"],
+    author=metadata["author"],
+    author_email=metadata["author_email"],
+    license=metadata["license"],
+    packages=setuptools.find_packages(),
+    entry_points={"console_scripts": ["a2b=a2b.main:main"]},
     zip_safe=False,
-    keywords=['arxiv', "biblography", "markdown"],
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "Topic :: Education",
-        "Topic :: Text Processing :: Markup :: Markdown",
-        "Topic :: Utilities",
-        "License :: OSI Approved :: MIT License"
-    ]
+    keywords=metadata["keywords"],
+    classifiers=metadata["classifiers"],
 )

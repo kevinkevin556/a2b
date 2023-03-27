@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "a2b"
+version = "1.0.5"
+description = "Replace arxiv links in markdowns by their corresponding bibliography."
+long_description_content_type = "text/markdown"
+url = "https://github.com/kevinkevin556/a2b"
+author = "Zhen-Lun Hong"
+author_email = "kevink556@gmail.com"
+license = "MIT"
+keywords = ["arxiv", "bibliography", "markdown", "Notion"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Education",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Utilities",
+    "License :: OSI Approved :: MIT License",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
