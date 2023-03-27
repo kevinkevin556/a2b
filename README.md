@@ -8,7 +8,7 @@
 
 This repo provides a tool to replace arXiv/DOI links saved in 
 
-* [markdown files](#📄-markdown) or
+* [markdown files](#markdown) or
 * [Notion database](#notion-database)
 
 with their corresponding bibliographic information, which intends to create a more convenient experience for users in needs of searching, collecting, and taking notes of literatures. The script uses the Semantic Scholar API to retrieve information such as authors, title, journal, year, and citation count for a given arXiv paper.
@@ -116,7 +116,7 @@ You can choose to save your Notion API key as a environment variable `NOTION_API
 
 ## Changelog
 
-* **Version 1.0.5** (currently not support pip install)
+* **Version 1.0.5**
   * Support Notion database
   * Fix version command
 * **Version 1.0.4**
