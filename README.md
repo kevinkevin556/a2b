@@ -1,17 +1,19 @@
 # A2B (Arxiv to Bibliography)
 
-> Replace arXiv links (or doi links) by their corresponding bibliography in markdowns. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
-
-
-![demo](https://github.com/kevinkevin556/arxiv2bib/raw/main/demo.gif)
+> Replace arXiv links (or doi links) by their corresponding bibliography in markdowns / Notion databases. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
 
 
 This repo provides a tool to replace arXiv/DOI links saved in 
 
-* [markdown files](#markdown) or
+* [Markdown files](#markdown) or
 * [Notion database](#notion-database)
 
 with their corresponding bibliographic information, which intends to create a more convenient experience for users in needs of searching, collecting, and taking notes of literatures. The script uses the Semantic Scholar API to retrieve information such as authors, title, journal, year, and citation count for a given arXiv paper.
+
+
+| [Markdown](#markdown)| [Notion Database](#notion-database) |
+|:---:|:---:|
+![demo](https://github.com/kevinkevin556/arxiv2bib/raw/main/demo.gif) |![demo](https://github.com/kevinkevin556/arxiv2bib/raw/main/notion-demo.gif)|
 
 
 ## Installation
