@@ -1,15 +1,16 @@
 # A2B (Arxiv to Bibliography)
 
+![pypi](https://img.shields.io/pypi/v/a2b?color=green)  ![license](https://img.shields.io/pypi/l/a2b?color=orange)
+
 > Replace arXiv links (or doi links) by their corresponding bibliography in markdowns / Notion databases. Inspired by [Mu Li](https://www.youtube.com/watch?v=q1G0xZCqYxY&ab_channel=MuLi).
 
 
-This repo provides a tool to replace arXiv/DOI links saved in 
+This repo provides a tool to replace arXiv/DOI links saved in
 
 * [Markdown files](#markdown) or
 * [Notion database](#notion-database)
 
 with their corresponding bibliographic information, which intends to create a more convenient experience for users in needs of searching, collecting, and taking notes of literatures. The script uses the Semantic Scholar API to retrieve information such as authors, title, journal, year, and citation count for a given arXiv paper.
-
 
 | [Markdown](#markdown)| [Notion Database](#notion-database) |
 |:---:|:---:|
@@ -32,8 +33,7 @@ The tool can be run from the command line, e.g. to check the installed version o
 >> a2b --version
 ```
 
-
-![](https://img.icons8.com/ios/2x/markdown.png)
+![markdown-logo](https://img.icons8.com/ios/2x/markdown.png)
 
 ### Markdown
 
@@ -81,9 +81,11 @@ To replace arXiv links in the markdown files **ONLY** within the directory (subd
 >> a2b -nr path/to/directory
 ```
 
-![](https://img.icons8.com/color/2x/notion--v1.png)
+---
 
-###  Notion Database
+![notion-logo](https://img.icons8.com/color/2x/notion--v1.png)
+
+### Notion Database
 
 To generate bibliography from links saved in a Notion database, follow the instructions below
 
