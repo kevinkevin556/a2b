@@ -1,16 +1,12 @@
 import os
 import argparse
-import toml
+import pkg_resources
 from .message import prompt
 from .markdown import query_single_link, replace_links, replace_links_in_dir
 from .notion import replace_links_in_db, get_database_id
 
 
 def main():
-    parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-    with open(os.path.join(parent_dir, "pyproject.toml"), "r") as f:
-        version_info = toml.load(f)["tool"]["poetry"]["version"]
-
     description = "Replace arxiv links in the markdown files by their corresponding bibliography."
     help_path = "path of a markdown or a directory containing markdowns."
     help_nr = "replace arxiv links in markdowns only under the given directory"
@@ -20,6 +16,7 @@ def main():
     help_notion = "the Notion database id"
     help_key = "the Notion API key"
 
+    version_info = pkg_resources.require("a2b")[0].version
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument("path", help=help_path)
     parser.add_argument("-nr", "--no-recursive", dest="recursive", action="store_false", help=help_nr)

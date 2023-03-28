@@ -116,9 +116,10 @@ You can choose to save your Notion API key as a environment variable `NOTION_API
 
 ## Changelog
 
+* **Version 1.0.6**
+  * Fix version command
 * **Version 1.0.5**
   * Support Notion database
-  * Fix version command
 * **Version 1.0.4**
   * Support creating bibliography from DOI links
   * Support querying a single arXiv link from terminal
