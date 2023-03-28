@@ -44,9 +44,9 @@ For example:
 ```Bash
 >> a2b --arXiv https://arXiv.org/abs/1912.08957
 
-## __Optimization for deep learning: theory and algorithms.__ *Ruoyu Sun.* __ArXiv, 2019__ [(Arxiv)](https:
-## //arXiv.org/abs/1912.08957) [(S2)](https://www.semanticscholar.org/paper/c23173e93f1db79a422e2af881a40af
-## b96b8cb92) (Citations __114__)
+## __Optimization for deep learning: theory and algorithms.__ *Ruoyu Sun.* __ArXiv, 2019__ [(Arxiv)](ht
+## tps://arXiv.org/abs/1912.08957) [(S2)](https://www.semanticscholar.org/paper/c23173e93f1db79a422e2af
+## 881a40afb96b8cb92) (Citations __114__)
 ```
 
 Here you can use the link of pdf `https://arXiv.org/pdf/1912.08957.pdf`, instead of the link of arXiv page.
@@ -54,9 +54,9 @@ Here you can use the link of pdf `https://arXiv.org/pdf/1912.08957.pdf`, instead
 ```Bash
 >> a2b --doi https://doi.org/10.1007/BF00133570
 
-## __Snakes: Active contour models.__ *M. Kass et al.* __International Journal of Computer Vision, 2004__ [(
-## Link)](https://doi.org/10.1007/BF00133570) [(S2)](https://www.semanticscholar.org/paper/9394a5d5adcb62612
-## 8b6a42c8810b9505a3c6487) (Citations __15860__)
+## __Snakes: Active contour models.__ *M. Kass et al.* __International Journal of Computer Vision, 2004__ 
+## [(Link)](https://doi.org/10.1007/BF00133570) [(S2)](https://www.semanticscholar.org/paper/9394a5d5adcb6
+## 26128b6a42c8810b9505a3c6487) (Citations __15860__)
 ```
 
 One can simply provide the DOI `10.1007/BF00133570` without adding the hyperlink prefix to generate bibilography from DOI.
