@@ -97,7 +97,6 @@ To generate bibliography from links saved in a Notion database, follow the instr
       * Author (rich_text)
       * Year (number)
       * Journal (rich_text)
-      * Arxiv (url)
       * Link (url)
       * S2 (url)
       * Citations (number)

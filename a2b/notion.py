@@ -45,7 +45,7 @@ def generate_page_data(s2_id, title, author, journal, year, citations, arxiv_id=
         "S2": {"url": f"https://www.semanticscholar.org/paper/{s2_id}"}
     }
     if arxiv_id is not None:
-        metadata['Arxiv'] = {"url": f"https://arxiv.org/abs/{arxiv_id}"}
+        metadata['Link'] = {"url": f"https://arxiv.org/abs/{arxiv_id}"}
     if doi is not None:
         metadata['Link'] = {"url": f"https://doi.org/{doi}"}
     return {'properties': metadata}
