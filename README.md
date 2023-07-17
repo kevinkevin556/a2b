@@ -42,7 +42,7 @@ The tool can be run from the command line, e.g. to check the installed version o
 For example:
 
 ```Bash
->> a2b --arXiv https://arXiv.org/abs/1912.08957
+>> a2b --arxiv https://arXiv.org/abs/1912.08957
 
 ## __Optimization for deep learning: theory and algorithms.__ *Ruoyu Sun.* __ArXiv, 2019__ [(Arxiv)](ht
 ## tps://arXiv.org/abs/1912.08957) [(S2)](https://www.semanticscholar.org/paper/c23173e93f1db79a422e2af
