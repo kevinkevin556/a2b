@@ -117,10 +117,10 @@ You can choose to save your Notion API key as a environment variable `NOTION_API
 >> a2b --notion notion_database_url
 ```
 
-
-
 ## Changelog
 
+* **Version 1.0.7**
+  * Fix the problem of arxiv and doi format confliction in Notion
 * **Version 1.0.6**
   * Fix version command
 * **Version 1.0.5**

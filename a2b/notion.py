@@ -92,10 +92,11 @@ def replace_links_in_db(database_id, notion_api_key, start_cursor=None):
         arxiv_id = get_arxiv_id(paper_title)
         doi = get_doi(paper_title)
 
-        if arxiv_id:
-            paper_data = connect_to_s2(arxiv_id=arxiv_id)
-        elif doi:
+
+        if doi:
             paper_data = connect_to_s2(doi=doi)
+        elif arxiv_id:
+            paper_data = connect_to_s2(arxiv_id=arxiv_id)
         else:
             paper_data = None
 

@@ -1,4 +1,4 @@
-dist/
-a2b.egg-info/
 a2b/__pycache__/
+a2b.egg-info/
 build/
+dist/
