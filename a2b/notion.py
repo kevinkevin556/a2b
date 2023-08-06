@@ -6,6 +6,7 @@ from .message import red, yellow, prompt, get_update_message
 from .link_utils import get_arxiv_id, get_doi
 
 
+
 def get_database_id(text):
     uuid_len = 32
     if len(text) == uuid_len:
@@ -75,15 +76,20 @@ def replace_links_in_db(database_id, notion_api_key, start_cursor=None):
     if start_cursor is None:
         db_name = get_database_name(database_id, notion_api_key)
         prompt(f"[In Notion database: {db_name}]")
-
+        response = requests.post(
+            f'{endpoint}/databases/{database_id}/query',
+            headers=notion_headers
+        )
+    else:
     # Make the API call to retrieve the database contents
-    response = requests.post(
-        f'{endpoint}/databases/{database_id}/query',
-        headers=notion_headers,
-        data={"start_cursor": start_cursor}
-    )
+        response = requests.post(
+            f'{endpoint}/databases/{database_id}/query',
+            headers=notion_headers,
+            json={"start_cursor": start_cursor}
+        )
 
     # Extract the database contents and replace links with metadata
+    breakpoint()
     for page in response.json()['results']:
 
         page_id = page.get("id")
