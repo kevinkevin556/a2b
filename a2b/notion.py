@@ -89,7 +89,6 @@ def replace_links_in_db(database_id, notion_api_key, start_cursor=None):
         )
 
     # Extract the database contents and replace links with metadata
-    breakpoint()
     for page in response.json()['results']:
 
         page_id = page.get("id")
